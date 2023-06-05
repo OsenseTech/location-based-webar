@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>AR.js A-Frame Location-based</title>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script type="text/javascript"
-        src="https://www.unpkg.com/@ar-js-org/ar.js@3.4.5/three.js/build/ar-threex-location-only.js"></script>
-
-    <script type="text/javascript"
-        src="https://www.unpkg.com/@ar-js-org/ar.js@3.4.5/aframe/build/aframe-ar.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青青測試專案</title>
 </head>
-
 <body>
-    <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
-        renderer='antialias: true; alpha: true'>
-        <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-        <a-entity material='color: red' geometry='primitive: box'
-            gps-new-entity-place="latitude: 25.0958333; longitude: 121.5261202" scale="20 20 20"></a-entity>
-    </a-scene>
+    <button class="entranceButton" onclick="goTo('location-ar.html')">AR.js + GPS</button>
+    <button class="entranceButton" onclick="goTo('location-map.html')">Google Maps + GPS</button>
+    <button class="entranceButton" onclick="goTo('ar-without-gps.html')">AR.js + Image Tracking</button>
+    <script>
+        const goTo = (page) => {
+            console.log(page);
+            window.location.href = page;
+        }
+    </script>
 </body>
-
 </html>
