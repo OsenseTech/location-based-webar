@@ -21,44 +21,9 @@
 
 <body>
     <div id="map"></div>
-    <script>
-        let map;
-        var marker;
-
-        const createMarker = (position) => {
-            const latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            if (marker == undefined) {
-                marker = new google.maps.Marker({
-                    position: latLng,
-                    map: map,
-                    zIndex: 1
-                });
-            } else {
-                marker.setPosition(latLng);
-            }
-        }
-
-        const successCallback = (position) => {
-            // console
-            console.log(position);
-
-            // map
-            createMarker(position);
-        };
-
-        const errorCallback = (error) => {
-            console.log(error);
-        };
-
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: { lat: 25.033708, lng: 121.564899 }
-            });
-            const id = navigator.geolocation.watchPosition(successCallback, errorCallback);
-        }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7ABWpMcIxyrAgxvC86W6d3QVuqNVVRtg&callback=initMap"></script>
+    <script src="src/location-map.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7ABWpMcIxyrAgxvC86W6d3QVuqNVVRtg&callback=initMap"></script>
 </body>
 
 </html>
