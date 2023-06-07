@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AR.js A-Frame Location-based</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+
+    <script type="text/javascript"
+        src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar-nft.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script> -->
+
+    <!-- <script>
+        AFRAME.registerComponent("camera-logger", {
+            schema: {
+                timestamp: { type: 'int' },
+                seconds: { type: 'int' } // default 0
+            },
+            log: function () {
+                var cameraEl = this.el.sceneEl.camera.el;
+                var rotation = cameraEl.getAttribute('rotation');
+                var position = cameraEl.getAttribute('poisition')
+                var worldPos = new THREE.Vector3();
+                worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
+                console.log("Time: " + this.data.seconds
+                    + "; Camera Position: (" + worldPos.x.toFixed(2) + ", " + worldPos.y.toFixed(2) + ", " + worldPos.z.toFixed(2)
+                    + "); Camera Rotation: (" + rotation.x.toFixed(2) + ", " + rotation.y.toFixed(2) + ", " + rotation.z.toFixed(2) + ")");
+            },
+            tick: function () {
+                if (Date.now() - this.data.timestamp > 1000) {
+                    this.data.timestamp += 1000;
+                    this.data.seconds += 1;
+                    this.log();
+                }
+            }
+        })
+    </script> -->
+
+    <script>
+        window.addEventListener("arjs-nft-loaded", (event) => {
+            // Hide loading overlay
+        });
+    </script>
+
+    <!-- style for the loader -->
+    <style>
+        .arjs-loader {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .arjs-loader div {
+            text-align: center;
+            font-size: 1.25em;
+            color: white;
+        }
+    </style>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
+    <div class="arjs-loader">
+        <div>Loading, please wait...</div>
+    </div>
+
+    <!-- a-frame scene -->
+    <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
+        arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+        <!-- a-nft is the anchor that defines an Image Tracking entity -->
+        <!-- on 'url' use the path to the Image Descriptors created before. -->
+        <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
+        <a-nft type="nft" url="./assets/trex-image/image" smooth="true" smoothCount="10" smoothTolerance=".01"
+            smoothThreshold="5">
+            <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
+            <a-entity gltf-model="./assets/dog.glb" scale="10 10 10" position="0 0 0">
+            </a-entity>
+        </a-nft>
+        <!-- static camera that moves according to the device movemenents -->
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <script>
+        // Detecting single marker
+        let nft = document.querySelector("a-nft");
+
+        nft.addEventListener("markerFound", (e) => {
+            let posx = nft.object3D.position.x;
+            let posy = nft.object3D.position.y;
+            let posz = nft.object3D.position.z;
+
+            let message = "Found marker at x: " + nft.object3D.position.x + ", y: " + nft.object3D.position.x + ", z: " + nft.object3D.position.z;
+            console.log(message)
+        });
+
+        nft.addEventListener("markerLost", (e)=> {
+            let posx = nft.object3D.position.x;
+            let posy = nft.object3D.position.y;
+            let posz = nft.object3D.position.z;
+
+            let message = "Lost marker at x: " + nft.object3D.position.x + ", y: " + nft.object3D.position.x + ", z: " + nft.object3D.position.z;
+            console.log(message)
+        })
+    </script>
+</body>
+
+</html>
