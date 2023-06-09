@@ -1,9 +1,11 @@
-#messageBox {
-    background-color: white; 
-    height: 80px; 
-    width: 50%; 
-    position: absolute; 
-    z-index: 5; 
-    top: 10px; 
-    left: 10px;
+.map {
+    background-color: white;
+    width: 100%;
+    border-radius: 50% 50% 0 0;
+    aspect-ratio: 3/2;
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
 }

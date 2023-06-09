@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>AR.js A-Frame Location-based</title>
+    <title>Location-based</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script type="text/javascript"
         src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/three.js/build/ar-threex-location-only.js"></script>
@@ -18,19 +18,7 @@
             // Add other bootstrap parameters as needed, using camel case.
         });
     </script>
-    <style>
-        .map {
-            background-color: white;
-            width: 100%;
-            border-radius: 100% 100% 0 0;
-            aspect-ratio: 2/1;
-            position: absolute;
-            z-index: 9999;
-            left: 50%;
-            bottom: 0;
-            transform: translate(-50%, 0);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script src="src/location-ar-map.js"></script>
 </head>
 
@@ -41,29 +29,7 @@
     </a-scene>
 
     <div class="map" id="map"></div>
-
-    <script>
-        async function initMap() {
-            const { Map } = await google.maps.importLibrary("maps");
-            const mapOptions = {
-                zoom: 20,
-                center: { lat: 25.033708, lng: 121.564899 },
-                zoomControl: false,
-                mapTypeControl: false,
-                scaleControl: false,
-                streetViewControl: false,
-                rotateControl: true,
-                fullscreenControl: false
-            }
-            map = new Map(document.getElementById('map'), mapOptions)
-            const id = navigator.geolocation.watchPosition(successCallback, errorCallback, positionOptions)
-        }
-        initMap()
-    </script>
-
     <script type="module" src="src/location-ar.js"></script>
-    <!-- <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7ABWpMcIxyrAgxvC86W6d3QVuqNVVRtg&callback=initMap"></script> -->
 </body>
 
 </html>

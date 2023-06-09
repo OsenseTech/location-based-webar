@@ -3,6 +3,7 @@
 
 <head>
     <title>AR.js A-Frame Location-based</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 
     <script type="text/javascript"
@@ -36,9 +37,29 @@
     </script> -->
 
     <script>
+        AFRAME.registerComponent('position-handler', {
+            tick: function () {
+                var position = new THREE.Vector3();
+                var quaternion = new THREE.Quaternion();
+
+                return function () {
+                    this.el.object3D.getWorldPosition(position);
+                    this.el.object3D.getWorldQuaternion(quaternion);
+                    // position and rotation now contain vector and quaternion in world space.
+
+                    console.log()
+                };
+            }
+        })
+
         window.addEventListener("arjs-nft-loaded", (event) => {
             // Hide loading overlay
-        });
+        })
+
+        window.addEventListener("gps-camera-update-position", (event) => {
+            // Hide loading overlay
+            console.log(event)
+        })
     </script>
 
     <!-- style for the loader -->
@@ -72,18 +93,17 @@
 
     <!-- a-frame scene -->
     <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
-        arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+        arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
         <!-- a-nft is the anchor that defines an Image Tracking entity -->
         <!-- on 'url' use the path to the Image Descriptors created before. -->
         <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
         <a-nft type="nft" url="./assets/trex-image/image" smooth="true" smoothCount="10" smoothTolerance=".01"
             smoothThreshold="5">
             <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-            <a-entity gltf-model="./assets/dog.glb" scale="10 10 10" position="0 0 0">
-            </a-entity>
+            <!-- <a-entity gltf-model="./assets/dog.glb" scale="10 10 10" position="0 0 0"></a-entity> -->
         </a-nft>
         <!-- static camera that moves according to the device movemenents -->
-        <a-entity camera></a-entity>
+        <a-entity camera position-handler></a-entity>
     </a-scene>
 
     <script>
@@ -95,11 +115,17 @@
             let posy = nft.object3D.position.y;
             let posz = nft.object3D.position.z;
 
+            let entity = document.createElement('a-entity')
+            entity.setAttribute('gltf-model', './assets/dog.glb')
+            entity.setAttribute('scale', '50 50 50')
+            entity.setAttribute('position', `${posx} ${posy} ${posz}`)
+            nft.appendChild(entity)
+
             let message = "Found marker at x: " + nft.object3D.position.x + ", y: " + nft.object3D.position.x + ", z: " + nft.object3D.position.z;
             console.log(message)
         });
 
-        nft.addEventListener("markerLost", (e)=> {
+        nft.addEventListener("markerLost", (e) => {
             let posx = nft.object3D.position.x;
             let posy = nft.object3D.position.y;
             let posz = nft.object3D.position.z;
@@ -107,6 +133,13 @@
             let message = "Lost marker at x: " + nft.object3D.position.x + ", y: " + nft.object3D.position.x + ", z: " + nft.object3D.position.z;
             console.log(message)
         })
+
+        // Detecting camera
+        // let camera = document.querySelector("[camera]")
+
+        // camera.addEventListener("gps-camera-update-position", (e) => {
+        //     console.log(e)
+        // })
     </script>
 </body>
 

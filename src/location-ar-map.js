@@ -48,7 +48,8 @@ const successCallback = (position) => {
     }
 }
 
-function initMap() {
+async function initMap() {
+    const { Map } = await google.maps.importLibrary("maps");
     const mapOptions = {
         zoom: 20,
         center: { lat: 25.033708, lng: 121.564899 },
@@ -59,6 +60,7 @@ function initMap() {
         rotateControl: true,
         fullscreenControl: false
     }
-    map = new google.maps.Map(document.getElementById('map'), mapOptions)
+    map = new Map(document.getElementById('map'), mapOptions)
     const id = navigator.geolocation.watchPosition(successCallback, errorCallback, positionOptions)
 }
+initMap()
