@@ -1,0 +1,19 @@
+{
+  "name": "location-based-webar",
+  "version": "1.0.0",
+  "description": "Demo of Location-based WebAR project for Chin-chin project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claireliu14/location-based-webar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claireliu14/location-based-webar/issues"
+  },
+  "homepage": "https://github.com/claireliu14/location-based-webar#readme"
+}

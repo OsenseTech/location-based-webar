@@ -1,4 +1,4 @@
-export const chinChin = [
+const chinChin = [
     {
         name: '夏綠蒂廳',
         makers: [
@@ -117,52 +117,52 @@ export const chinChin = [
     }
 ]
 
-export const osense = [
-    {
-        name: '合作金庫',
-        markers: [
-            {
-                name: '合作金庫',
-                position: {latitude: 25.041676, longitude: 121.556555},
-                type: 'destination'
-            },
-            {
-                name: '合作金庫入口',
-                position: {latitude: 25.041678, longitude: 121.556576},
-                type: 'entrance'
-            }
-        ]
-    },
-    {
-        name: '國父紀念館捷運一號出口',
-        markers: [
-            {
-                name: '國父紀念館站',
-                position: {latitude: 25.041780, longitude: 121.556666},
-                type: 'destination'
-            },
-            {
-                name: '出入口',
-                position: {latitude: 25.041811, longitude: 121.556663},
-                type: 'entrance'
-            }
-        ]
-    },
+const osense = [
+    // {
+    //     name: '合作金庫',
+    //     markers: [
+    //         {
+    //             name: '合作金庫',
+    //             position: {latitude: 25.04172570949453, longitude: 121.55651844097869},
+    //             type: 'destination'
+    //         },
+    //         {
+    //             name: '合作金庫入口',
+    //             position: {latitude: 25.041727257891207, longitude: 121.55654518712821},
+    //             type: 'entrance'
+    //         }
+    //     ]
+    // },
     {
         name: '玉山銀行',
         markers: [
             {
                 name: '玉山銀行',
-                position: {latitude: 25.041562, longitude: 121.556124},
+                position: {latitude: 25.041557345481838, longitude: 121.55605769086327},
                 type: 'destination'
             },
             {
                 name: '玉山銀行入口',
-                position: {latitude: 25.041500, longitude: 121.556126},
+                position: {latitude: 25.041542765002912, longitude: 121.55606216040202},
                 type: 'entrance'
             }
         ]
-    }
+    },
+    // {
+    //     name: '國父紀念館',
+    //     markers: [
+    //         {
+    //             name: '國父紀念館',
+    //             position: {latitude: 25.03949571883961, longitude: 121.56027968609106},
+    //             type: 'destination'
+    //         },
+    //         {
+    //             name: '國父紀念館樓梯',
+    //             position: {latitude: 25.03944941283494, longitude: 121.56027978793148},
+    //             type: 'entrance'
+    //         }
+    //     ]
+    // }
 ]
 
 

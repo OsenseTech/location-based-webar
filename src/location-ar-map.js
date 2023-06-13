@@ -31,7 +31,7 @@ let map
 let userMarker
 const positionOptions = { enableHighAccuracy: true }
 const errorCallback = (error) => console.log(error)
-const successCallback = (position) => {
+async function successCallback(position) {
     const pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
@@ -46,6 +46,30 @@ const successCallback = (position) => {
     } else {
         userMarker.setPosition(pos)
     }
+
+    calculateDistance(pos)
+    calculateHeading(pos)
+}
+
+async function calculateDistance(pos) {
+    const { spherical } = await google.maps.importLibrary("geometry")
+    const dest = {
+        lat: 25.04162733656967, 
+        lng: 121.55592802538551
+    }
+    let distance = spherical.computeDistanceBetween(pos, dest)
+    console.log(`distance: ${distance}`)
+}
+
+
+async function calculateHeading(pos) {
+    const { spherical } = await google.maps.importLibrary("geometry")
+    const dest = {
+        lat: 25.04162733656967, 
+        lng: 121.55592802538551
+    }
+    let heading = spherical.computeHeading(pos, dest)
+    console.log(`heading: ${heading}`)
 }
 
 async function initMap() {
