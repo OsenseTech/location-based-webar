@@ -4,11 +4,7 @@ async function calculateDistance(currentPosition) {
         lat: currentPosition.coords.latitude,
         lng: currentPosition.coords.longitude
     }
-    const to = {
-        lat: 25.04149805894291, 
-        lng: 121.5583795762399
-    }
-    return spherical.computeDistanceBetween(from, to)
+    return spherical.computeDistanceBetween(from, destination)
 }
 
 const round = (num) => Math.round(num * 100) / 100
