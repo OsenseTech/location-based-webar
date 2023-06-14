@@ -14,7 +14,11 @@ const id = navigator.geolocation.watchPosition(
         let messageEl = document.getElementById("message")
         if (messageEl) {
             const distance = await calculateDistance(position)
-            messageEl.innerHTML = `距離目的地還有 ${round(distance)} 公尺`
+            if (distance <= 5) {
+                messageEl.innerHTML = '您已抵達目的地'
+            } else {
+                messageEl.innerHTML = `距離目的地還有 ${round(distance)} 公尺`
+            }
         }
     },
     (error) => {
