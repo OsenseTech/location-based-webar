@@ -23,16 +23,20 @@
     <link rel="stylesheet" href="style.css">
     <script src="src/location-ar-map.js"></script>
     <script src="src/compassComponent.js"></script>
+    <script src="src/distance.js"></script>
 </head>
 
 <body>
     <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
         renderer='antialias: true; alpha: true'>
         <a-camera gps-new-camera='gpsMinDistance: 2' look-controls position="0 0 0">
-            <a-entity position="0 -0.2 -1" gltf-model="./assets/arrow.glb" scale="0.1 0.1 0.1" compass></a-entity>
+            <a-entity position="0 -0.2 -1">
+                <a-entity position="0 0 0" gltf-model="./assets/arrow.glb" scale="0.1 0.1 0.1" compass></a-entity>
+            </a-entity>
         </a-camera>
     </a-scene>
 
+    <div class="message" id="message"></div>
     <div class="map" id="map"></div>
     <script type="module" src="src/location-ar.js"></script>
 </body>
