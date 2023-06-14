@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>青青測試專案</title>
+    <style type="text/css">
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+        }
+
+        .grid-item {
+            /* border: 1px solid red; */
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    <button class="entranceButton" onclick="goTo('location-ar.html')">AR.js + GPS</button>
-    <button class="entranceButton" onclick="goTo('location-map.html')">Google Maps + GPS</button>
-    <button class="entranceButton" onclick="goTo('ar-without-gps.html')">AR.js + Image Tracking</button>
-    <script>
+    <h1>Location-based AR</h1>
+    <div class="grid-container"></div>
+    <script type="module">
         const goTo = (page) => {
             console.log(page);
             window.location.href = page;
         }
+
+        import data from './src/data.js'
+        let container = document.getElementsByClassName("grid-container")[0]
+        data.osense.forEach((e) => {
+            let button = document.createElement('button')
+            button.setAttribute('class', 'grid-item')
+            button.setAttribute('type', 'button')
+            button.innerHTML = e.name
+            button.addEventListener('click', () => {
+                const lat = e.position.lat
+                const lng = e.position.lng
+                window.location.href = `location-ar.html?lat=${lat}&lng=${lng}&name=${e.name}`
+            })
+            container.appendChild(button)
+        })
     </script>
+    
+    <button class="entranceButton" onclick="goTo('location-map.html')">Google Maps + GPS</button>
+    <button class="entranceButton" onclick="goTo('ar-without-gps.html')">AR.js + Image Tracking</button>
 </body>
+
 </html>

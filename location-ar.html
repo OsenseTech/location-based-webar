@@ -22,10 +22,11 @@
     </script>
     <link rel="stylesheet" href="style.css">
     <script>
-        const destination = {
-            lat: 25.041616217209686, 
-            lng: 121.55651413131211
-        }
+        const _parsedUrl = new URL(window.location.href)
+        const _latitude = parseFloat(_parsedUrl.searchParams.get("lat"), 0)
+        const _longitude = parseFloat(_parsedUrl.searchParams.get("lng"), 0)
+        const destination = {lat: _latitude, lng: _longitude}
+        console.log(destination)
     </script>
     <script src="src/location-ar-map.js"></script>
     <script src="src/compassComponent.js"></script>

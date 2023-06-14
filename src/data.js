@@ -133,36 +133,35 @@ const osense = [
     //         }
     //     ]
     // },
-    {
-        name: '玉山銀行',
-        markers: [
-            {
-                name: '玉山銀行',
-                position: {latitude: 25.041557345481838, longitude: 121.55605769086327},
-                type: 'destination'
-            },
-            {
-                name: '玉山銀行入口',
-                position: {latitude: 25.041542765002912, longitude: 121.55606216040202},
-                type: 'entrance'
-            }
-        ]
-    },
     // {
-    //     name: '國父紀念館',
+    //     name: '玉山銀行',
     //     markers: [
     //         {
-    //             name: '國父紀念館',
-    //             position: {latitude: 25.03949571883961, longitude: 121.56027968609106},
+    //             name: '玉山銀行',
+    //             position: {latitude: 25.041557345481838, longitude: 121.55605769086327},
     //             type: 'destination'
     //         },
     //         {
-    //             name: '國父紀念館樓梯',
-    //             position: {latitude: 25.03944941283494, longitude: 121.56027978793148},
+    //             name: '玉山銀行入口',
+    //             position: {latitude: 25.041542765002912, longitude: 121.55606216040202},
     //             type: 'entrance'
     //         }
     //     ]
-    // }
+    // },
+    {
+        name: '國父紀念館',
+        position: {
+            lat: 25.03949571883961, 
+            lng: 121.56027968609106
+        },
+    },
+    {
+        name: 'Home',
+        position: {
+            lat: 25.09577138244955, 
+            lng: 121.52613855091435
+        },
+    }
 ]
 
 
