@@ -1,4 +1,3 @@
-// import { compassComponent } from './compass.js'
 AFRAME.registerComponent('compass', {
     init: function () {
         console.log('init')
@@ -12,13 +11,24 @@ AFRAME.registerComponent('compass', {
         let compass
         let rotation
 
+        // async function calculateHeading(pos) {
+        //     const { spherical } = await google.maps.importLibrary("geometry")
+        //     const dest = {
+        //         lat: 25.04162733656967,
+        //         lng: 121.55592802538551
+        //     }
+        //     return spherical.computeHeading(pos, dest)
+        // }
+
         function handler(e) {
             compass = e.webkitCompassHeading || Math.abs(e.alpha - 360)
             // compassEl.style.transform = `rotate(${-compass}deg)`
             // rotate doty 180 degrees to face heading
-            rotation = (-compass + 180 + 90) * -1
+            // console.log(`compass: ${compass}`)
+            const angle = pointDegree - compass
+            rotation = (angle + 180 + 90) * -1
+            // rotation = (-angle + 180 + 90) * -1
             doty.setAttribute('rotation', `0  ${rotation} 0`)
-            console.log(`rotation: ${rotation}`)
         }
 
         function startCompass() {
@@ -37,12 +47,12 @@ AFRAME.registerComponent('compass', {
 
         function calcDegreeToPoint(latitude, longitude) {
             // Qibla geolocation
-            const point = {
-                lat: 21.422487,
-                lng: 39.826206,
-            }
-            const phiK = (point.lat * Math.PI) / 180.0
-            const lambdaK = (point.lng * Math.PI) / 180.0
+            // const point = {
+            //     lat: 21.422487,
+            //     lng: 39.826206,
+            // }
+            const phiK = (destination.lat * Math.PI) / 180.0
+            const lambdaK = (destination.lng * Math.PI) / 180.0
             const phi = (latitude * Math.PI) / 180.0
             const lambda = (longitude * Math.PI) / 180.0
             const psi =
@@ -61,10 +71,11 @@ AFRAME.registerComponent('compass', {
             if (pointDegree < 0) {
                 pointDegree += 360
             }
+            console.log(`pointDegree: ${pointDegree}`)
         }
 
         function start() {
-            navigator.geolocation.getCurrentPosition(locationHandler)
+            navigator.geolocation.watchPosition(locationHandler, null, { enableHighAccuracy: true })
             if (isIOS) {
                 startCompass()
             } else if (window.DeviceOrientationEvent && 'ontouchstart' in window) {
@@ -77,4 +88,3 @@ AFRAME.registerComponent('compass', {
         start()
     }
 })
-// console.log(compassComponent)
