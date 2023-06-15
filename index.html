@@ -9,19 +9,21 @@
     <style type="text/css">
         .grid-container {
             display: grid;
-            grid-template-columns: auto auto auto;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
         }
 
         .grid-item {
             /* border: 1px solid red; */
             padding: 10px;
             text-align: center;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
-    <h1>Location-based AR</h1>
+    <h2>Location-based AR</h2>
     <div class="grid-container"></div>
     <script type="module">
         const goTo = (page) => {
@@ -45,6 +47,7 @@
         })
     </script>
     
+    <h2>Other Tests</h2>
     <button class="entranceButton" onclick="goTo('location-map.html')">Google Maps + GPS</button>
     <button class="entranceButton" onclick="goTo('ar-without-gps.html')">AR.js + Image Tracking</button>
 </body>
