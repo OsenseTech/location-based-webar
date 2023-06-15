@@ -118,41 +118,11 @@ const chinChin = [
 ]
 
 const osense = [
-    // {
-    //     name: '合作金庫',
-    //     markers: [
-    //         {
-    //             name: '合作金庫',
-    //             position: {latitude: 25.04172570949453, longitude: 121.55651844097869},
-    //             type: 'destination'
-    //         },
-    //         {
-    //             name: '合作金庫入口',
-    //             position: {latitude: 25.041727257891207, longitude: 121.55654518712821},
-    //             type: 'entrance'
-    //         }
-    //     ]
-    // },
-    // {
-    //     name: '玉山銀行',
-    //     markers: [
-    //         {
-    //             name: '玉山銀行',
-    //             position: {latitude: 25.041557345481838, longitude: 121.55605769086327},
-    //             type: 'destination'
-    //         },
-    //         {
-    //             name: '玉山銀行入口',
-    //             position: {latitude: 25.041542765002912, longitude: 121.55606216040202},
-    //             type: 'entrance'
-    //         }
-    //     ]
-    // },
     {
         name: '國父紀念館',
         position: {
-            lat: 25.03949571883961, 
-            lng: 121.56027968609106
+            lat: 25.039429728900192, 
+            lng: 121.5602649346482
         },
     },
     {
@@ -170,7 +140,14 @@ const osense = [
         }
     },
     {
-        name: 'Home',
+        name: '國父紀念館忠孝東路側出入口',
+        position: {
+            lat: 25.041106108460866, 
+            lng: 121.55966546250541
+        }
+    },
+    {
+        name: 'My Home',
         position: {
             lat: 25.09577138244955, 
             lng: 121.52613855091435
