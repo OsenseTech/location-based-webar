@@ -14,11 +14,15 @@ const id = navigator.geolocation.watchPosition(
         let messageEl = document.getElementById("message")
         if (messageEl) {
             const distance = await calculateDistance(position)
+            const arrow = document.getElementById('arrow')
             if (distance <= 5) {
                 messageEl.innerHTML = '您已抵達目的地'
+                arrow.setAttribute('visible', 'false')
             } else {
                 messageEl.innerHTML = `距離目的地還有 ${round(distance)} 公尺`
+                arrow.setAttribute('visible', 'true')
             }
+            console.log(arrow)
         }
     },
     (error) => {
