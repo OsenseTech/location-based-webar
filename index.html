@@ -26,11 +26,6 @@
     <h2>Location-based AR</h2>
     <div class="grid-container"></div>
     <script type="module">
-        const goTo = (page) => {
-            console.log(page);
-            window.location.href = page;
-        }
-
         import data from './src/data.js'
         let container = document.getElementsByClassName("grid-container")[0]
         data.osense.forEach((e) => {
@@ -46,10 +41,15 @@
             container.appendChild(button)
         })
     </script>
-    
     <h2>Other Tests</h2>
     <button class="entranceButton" onclick="goTo('location-map.html')">Google Maps + GPS</button>
     <button class="entranceButton" onclick="goTo('ar-without-gps.html')">AR.js + Image Tracking</button>
+    <script>
+        const goTo = (page) => {
+            console.log(page);
+            window.location.href = page;
+        }
+    </script>
 </body>
 
 </html>

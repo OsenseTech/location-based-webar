@@ -6,7 +6,7 @@ const addModel = (position, parent) => {
     model.setAttribute('gps-new-entity-place', `latitude: ${latitude}; longitude: ${longitude};`)
     model.setAttribute('gltf-model', './assets/map_marker.glb')
     model.setAttribute('scale', '1 1 1')
-    model.setAttribute('position', '0 -2.5 0')
+    model.setAttribute('position', '0 -1.8 0')
     model.setAttribute('look-at', '[gps-new-camera]')
     model.setAttribute('animation', 'property: rotation; dur: 3000; to: 0 360 0; loop: true; easing: linear')
     model.addEventListener('loaded', () => {

@@ -147,6 +147,13 @@ const osense = [
         }
     },
     {
+        name: '簡君芳地政士事務所',
+        position: {
+            lat: 25.041621800680314, 
+            lng: 121.5565116774338
+        },
+    },
+    {
         name: 'My Home',
         position: {
             lat: 25.09577138244955, 
