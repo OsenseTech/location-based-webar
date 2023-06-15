@@ -8,6 +8,7 @@ const addModel = (position, parent) => {
     model.setAttribute('scale', '1 1 1')
     model.setAttribute('position', '0 -2.5 0')
     model.setAttribute('look-at', '[gps-new-camera]')
+    model.setAttribute('animation', 'property: rotation; dur: 3000; to: 0 360 0; loop: true; easing: linear')
     model.addEventListener('loaded', () => {
         window.dispatchEvent(new CustomEvent('gps-new-entity-place-loaded'))
     })
