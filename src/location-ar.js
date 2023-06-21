@@ -5,12 +5,12 @@ const getPlaceModel = (place) => {
     let longitude = place.position.longitude
 
     let model = document.createElement('a-entity')
-    model.setAttribute('gps-new-entity-place', `latitude: ${latitude}; longitude: ${longitude};`)
+    model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`)
     model.setAttribute('gltf-model', place.type === 'destination' ? './assets/map_marker.glb': './assets/arrow.glb')
     model.setAttribute('scale', '1 1 1')
     model.setAttribute('id', place.type)
     model.addEventListener('loaded', () => {
-        window.dispatchEvent(new CustomEvent('gps-new-entity-place-loaded'))
+        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
     })
     return model
 }

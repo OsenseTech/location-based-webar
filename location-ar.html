@@ -36,7 +36,7 @@
 <body>
     <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
         renderer='antialias: true; alpha: true; logarithmicDepthBuffer: true; colorManagement: true; precision: mediump'>
-        <a-camera gps-new-camera='gpsMinDistance: 5' look-controls position="0 0 0">
+        <a-camera gps-camera='gpsMinDistance: 5' look-controls position="0 0 0">
             <a-entity position="0 -0.2 -1" id="arrow">
                 <a-entity position="0 0 0" gltf-model="./assets/arrow.glb" scale="0.2 0.2 0.2" compass></a-entity>
             </a-entity>
