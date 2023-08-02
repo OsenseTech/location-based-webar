@@ -9,7 +9,7 @@
 
 使用第三方套件主要有：  
 * [A-FRAME](https://aframe.io/) for 3D 物件渲染
-* [AR.js]([https://ar-js-org.github.io/AR.js-Docs/](https://ar-js-org.github.io/AR.js-Docs/location-based/)) for location-based AR
+* [AR.js](https://ar-js-org.github.io/AR.js-Docs/location-based/) for location-based AR
 * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript?hl=zh-tw) for 地圖顯示
 
 ## 執行
