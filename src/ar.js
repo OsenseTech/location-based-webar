@@ -3,7 +3,7 @@ const addModel = (position, parent) => {
     let longitude = position.lng
 
     let model = document.createElement('a-entity')
-    model.setAttribute('gps--entity-place', `latitude: ${latitude}; longitude: ${longitude};`)
+    model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`)
     model.setAttribute('gltf-model', './assets/map_marker.glb')
     model.setAttribute('scale', '1 1 1')
     model.setAttribute('position', '0 -1.8 0')
