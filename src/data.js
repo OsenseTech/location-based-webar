@@ -1,47 +1,47 @@
 const chinChin = [
     {
         name: '夏綠蒂廳',
-        position: { latitude: 25.099151, longitude: 121.551040 },
+        position: { lat: 25.099151, lng: 121.551040 },
 
     },
     {
         name: '神木庭院',
-        position: { latitude: 25.099168, longitude: 121.550994 },
+        position: { lat: 25.099168, lng: 121.550994 },
 
     },
     {
         name: '凱撒廳',
-        position: { latitude: 25.099097, longitude: 121.551040 },
+        position: { lat: 25.099097, lng: 121.551040 },
 
     },
     {
         name: '凡爾賽花園',
-        position: { latitude: 25.098903, longitude: 121.550911 },
+        position: { lat: 25.098903, lng: 121.550911 },
 
     },
     {
         name: '星池河畔/香榭廳',
-        position: { latitude: 25.098631, longitude: 121.550926 },
+        position: { lat: 25.098631, lng: 121.550926 },
 
     },
     {
         name: '緻膳水岸',
-        position: { latitude: 25.098480, longitude: 121.550620 },
+        position: { lat: 25.098480, lng: 121.550620 },
 
     },
     {
         name: '費加洛花園/教堂',
-        position: { latitude: 25.098179, longitude: 121.550667 },
+        position: { lat: 25.098179, lng: 121.550667 },
 
     },
     {
         name: '森之教堂',
-        position: { latitude: 25.098176, longitude: 121.550599 },
+        position: { lat: 25.098176, lng: 121.550599 },
 
     },
     {
         name: '落羽松森林/舞台',
-        position: { latitude: 25.097177, longitude: 121.550481 },
+        position: { lat: 25.097177, lng: 121.550481 },
     }
 ]
 
