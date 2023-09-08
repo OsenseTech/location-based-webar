@@ -26,4 +26,4 @@ const renderPlaces = (places) => {
     })
 }
 
-renderPlaces(data.osense)
+renderPlaces(data.chinChin)
