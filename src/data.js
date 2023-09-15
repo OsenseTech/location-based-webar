@@ -1,18 +1,17 @@
 const chinChin = [
     {
         name: '夏綠蒂廳',
-        position: { lat: 25.099219, lng: 121.551085 },
+        position: { lat: 25.0991833, lng: 121.5510928 },
 
     },
     {
         name: '凱撒廳',
-        position: { lat: 25.099178, lng: 121.551052 },
+        position: { lat: 25.099151, lng: 121.5510453 },
 
     },
     {
         name: '凡爾賽花園',
-        position: { lat: 25.098992, lng: 121.550922 },
-
+        position: { lat: 25.0990371, lng: 121.5509421 },
     },
     {
         name: '星池河畔/香榭廳',
