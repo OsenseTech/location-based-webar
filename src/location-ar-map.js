@@ -13,6 +13,8 @@ window.addEventListener("gps-camera-update-position", async (event) => {
     } else {
         cameraMarker = addMarker(pos, "./assets/ic_my_location_dark.png", 2)
     }
+    let messageEl = document.getElementById("arLocation")
+    messageEl.innerHTML = `AR GPS: ${pos.lat}, ${pos.lng}`
 })
 
 let map
@@ -30,6 +32,8 @@ function successCallback(position) {
         userMarker = addMarker(pos, "./assets/ic_my_location.png", 10)
         map.setCenter(pos)
     }
+    let messageEl = document.getElementById("gpsLocation")
+    messageEl.innerHTML = `Browser GPS: ${pos.lat}, ${pos.lng}`
 }
 
 function addMarker(position, icon, zIndex = 1) {

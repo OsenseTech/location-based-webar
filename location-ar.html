@@ -25,7 +25,7 @@
         const _parsedUrl = new URL(window.location.href)
         const _latitude = parseFloat(_parsedUrl.searchParams.get("lat"), 0)
         const _longitude = parseFloat(_parsedUrl.searchParams.get("lng"), 0)
-        const destination = {lat: _latitude, lng: _longitude}
+        const destination = { lat: _latitude, lng: _longitude }
         console.log(destination)
     </script>
     <script src="src/location-ar-map.js"></script>
@@ -43,7 +43,12 @@
         </a-camera>
     </a-scene>
 
-    <div class="message" id="message"></div>
+    <div class="message">
+        <div id="message"></div>
+        <div id="arLocation"></div>
+        <div id="gpsLocation"></div>
+    </div>
+
     <div class="map" id="map"></div>
     <!-- <script type="module" src="src/location-ar.js"></script> -->
     <script src="src/ar.js"></script>
